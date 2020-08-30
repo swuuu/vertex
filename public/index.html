@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/06a598706f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Vertex</title>
+</head>
+<body>
+    <!-- settings section -->
+    <button type="button" class="btn settings-button" data-toggle="modal" data-target="#settingsModal"><i class="fas fa-cog"></i></button>
+    
+    <div class="modal fade settings-section" id="settingsModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Settings</h5>
+            </div>
+            <div class="modal-body">
+              <!-- name -->
+              <div class="name form-group">
+                  <label id="currentName">Name:</label>
+                  <input type="text" class="form-control" placeholder="Name" id="name">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveSettings">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- title section -->
+    <div class="greeting-container"><h1 class="name" id="title"></h1></div>
+    <!-- main section -->
+    <div class="container-fluid">
+        <div class="row">
+            <div id="col-left" class="time col-lg-4"></div>
+            <div id="col-right" class="to-do col-lg-8"></div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="../src/index.js" type="text/jsx"></script>
+</body>
+</html>
