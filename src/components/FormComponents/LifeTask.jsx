@@ -1,11 +1,8 @@
 import React, {useState} from "react";
-import GradedTag from "./TaskTags/GradedTag";
 import OnRepeatTag from "./TaskTags/OnRepeatTag";
 
-function UniTask(props, ref) {
-    // Receives courseName, uniTaskToDo, method, onRepeat as props
+function LifeTask(props, ref) {
 
-    // isDone will allow the UniTask to be crossed out
     const [isDone, setDone] = useState(false);
 
     function changeDone() {
@@ -24,9 +21,8 @@ function UniTask(props, ref) {
                     </div>
                 </div>
                 <div className="task-info">
-                    <h5>{props.courseName}: {props.uniTaskToDo}</h5>
-                    <p>{props.method}</p>
-                    {props.graded && <GradedTag />}
+                    <h5>{props.lifeTaskTitle}</h5>
+                    <p>{props.lifeTaskDetails}</p>
                     {props.onRepeat && <OnRepeatTag />}
                 </div>
             </div>
@@ -38,6 +34,6 @@ function UniTask(props, ref) {
     )
 }
 
-const forwardUniTask = React.forwardRef(UniTask)
+const forwardLifeTask = React.forwardRef(LifeTask)
 
-export default forwardUniTask;
+export default forwardLifeTask;

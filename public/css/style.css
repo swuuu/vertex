@@ -83,16 +83,34 @@ input {
     padding: 3.5% 0;
 }
 
+/* time section */
+.time-section i {
+    font-size: 2rem;
+}
+
+.time-section i:hover {
+    color: #DDE4EF;
+}
+
+.stopwatch {
+    margin-top: 15%;
+}
+
+.date-And-Time {
+    margin-bottom: 15%;
+}
+
 /* ---------------------- to-do list section ---------------------- */
 
 /* createUniTask section */
 
 .create-uni-task {
     border: 1px solid white;
-    border-radius: 5%;
+    border-radius: 15px;;
     padding: 2%;
     max-width: 400px;
     max-height: 330px;
+    margin: 10px 0;
 }
 
 .uni-task-checkbox {
@@ -104,14 +122,41 @@ input {
     white-space: nowrap;
 }
 
+/* createLifeTask section*/
+
+.create-life-task {
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 2%;
+    margin: 10px 0;
+}
+
+.add-task-section form:first-child {
+    margin-top: 0;
+}
+
+
 /* tasks section */
+
+.tasks-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90px;
+}
 
 .task-box {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90px;
     border: 1px solid white;
-    border-radius: 2.5%;
+    border-radius: 15px;
     width: 400px;
     /* height: 75px; */
     height: 90px;
@@ -126,24 +171,24 @@ input {
     margin-bottom: 12.5px;;
 }
 
-.uni-task-right {
+.task-right {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.uni-task-check-container {
+.task-check-container {
     display: flex;
     align-items: center;
 }
 
-.uni-task-info {
+.task-info {
     text-align: left;
     max-width: 300px;
     overflow: hidden;
 }
 
-.uni-task-info h5, .uni-task-info p {
+.task-info h5, .task-info p {
     margin: 0;
 }
 
@@ -172,7 +217,7 @@ input {
 /* Task Tags*/
 
 .tag {
-    border-radius: 5%;
+    border-radius: 15px;
     text-align: center;
     display: inline-block;
     margin: 0 5px;
