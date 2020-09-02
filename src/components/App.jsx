@@ -1,8 +1,6 @@
 import React, {useState, useRef, createRef} from "react";
 import CreateUniTask from "./CreateUniTask";
-import CreateLifeTask from "./CreateLifeTask";
 import UniTask from "./FormComponents/UniTask";
-import LifeTask from "./FormComponents/LifeTask";
 
 import { gsap, TweenLite } from "gsap";
 import { Draggable } from "gsap/Draggable";
@@ -13,6 +11,7 @@ function App(){
     // taskList state: an array containing the objects of each task
     // tasks state: an array containing the DOM nodes of the objects
 
+    // UNIVERSITY TASKS: adds the object to an array, which will be used to render the tasks
     const [taskList, setTaskList] = useState(
         localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []
     );
@@ -21,9 +20,6 @@ function App(){
     React.useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(taskList));
     }, [taskList]);
-
-    // --------------------------- UNIVERSITY TASKS ---------------------------
-    // adds the object sent from CreateUniTask to taskList, which will be used to render the tasks
 
     //adding a task to taskList
     function addUniTaskInfo(obj) {
@@ -34,20 +30,6 @@ function App(){
 
     //removing a task from taskList
     function deleteUniTaskInfo(idToElim) {
-        setTaskList(prevValue => {
-            return prevValue.filter((task)=> {return idToElim !== task.keyID})
-        });
-    }
-
-    // --------------------------- LIFE TASKS ---------------------------
-
-    function addLifeTaskInfo(obj) {
-        setTaskList(prevValue => {
-            return [obj, ...prevValue];
-        });
-    }
-
-    function deleteLifeTaskInfo(idToElim) {
         setTaskList(prevValue => {
             return prevValue.filter((task)=> {return idToElim !== task.keyID})
         });
@@ -78,18 +60,6 @@ function App(){
         sortables = tasks.map(dragging);
     }, [tasks]);
 
-    function updateTaskList(array) {
-        let newTaskList = [];
-        sortables.forEach((taskDOM) => {
-            const id = taskDOM.element.getAttribute("data-keyid"); 
-            taskList.forEach((task) => {
-                if (id === task.keyID) {
-                    newTaskList.push(task);
-                }
-            });
-        });
-        return newTaskList;
-    }
 
     function changeIndex(item, to) {
     
@@ -108,7 +78,6 @@ function App(){
         sortables.forEach((sortable, index) => sortable.setIndex(index));
     }
     
-    // main function that creates draggable elements
     function dragging(element, index) {
         let content = element.current;    
         
@@ -173,9 +142,6 @@ function App(){
         // inner array.splice takes the task in the array to move, and the outer array.splice will place it at position "to"
         const newArray = [...array.splice(to, 0, array.splice(from, 1)[0])];
         setTasks(newArray);
-
-        // updating the order in taskList
-        setTaskList(() => {return updateTaskList(newArray)});
     }
 
     function clamp(value, a, b) {
@@ -187,22 +153,15 @@ function App(){
     return (
         <div className="container-fluid">
             <div className="row">
-                <div className="col-lg-6 col-md-6">
-                    <div className="" ref={container}>
+                <div className="col-lg-6 col-md-6 d-flex justify-content-center ">
+                    <div className="tasks-container" ref={container}>
                         {taskList.map((task, index) => {
-                            if ("courseName" in task) {
-                                return <UniTask key={task.keyID} keyID={task.keyID} ref={tasks[index]} courseName={task.courseName} uniTaskToDo={task.uniTaskToDo} method={task.method} graded={task.graded} onRepeat={task.onRepeat} delete={deleteUniTaskInfo}/>
-                            } else {
-                                return <LifeTask key={task.keyID} keyID={task.keyID} ref={tasks[index]} lifeTaskTitle={task.lifeTaskTitle} lifeTaskDetails={task.lifeTaskDetails} onRepeat={task.onRepeat} delete={deleteLifeTaskInfo}/>
-                            }
+                            return <UniTask key={task.keyID} keyID={task.keyID} ref={tasks[index]} courseName={task.courseName} uniTaskToDo={task.uniTaskToDo} method={task.method} graded={task.graded} onRepeat={task.onRepeat} delete={deleteUniTaskInfo}/>
                         })}
                     </div>
                 </div>
                 <div className="col-lg-6 col-md-6 d-flex justify-content-center">
-                    <div className="add-task-section">
-                        <CreateUniTask  addUniTaskInfo={addUniTaskInfo}/>
-                        <CreateLifeTask addLifeTaskInfo={addLifeTaskInfo} />
-                    </div>
+                    <CreateUniTask  addUniTaskInfo={addUniTaskInfo}/>
                 </div>
             </div>
         </div>

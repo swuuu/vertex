@@ -1,0 +1,203 @@
+/* 
+icon font sizes are 2 rem;
+
+*/
+
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Red Hat Text', sans-serif;
+}
+
+.morning-background {
+    background-color: rgb(238,174,202);
+    background-image: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    color: white;
+}
+
+.afternoon-background {
+    background-color: rgb(227,211,255);
+    background-image: linear-gradient(0deg, rgba(227,211,255,1) 0%, rgba(240,255,157,1) 52%, rgba(48,240,255,1) 100%);
+    color: black;
+}
+
+.evening-background {
+    background-color: rgb(255,192,0);
+    background-image: linear-gradient(33deg, rgba(255,192,0,1) 15%, rgba(189,4,191,1) 84%);
+    color: white;
+}
+
+.night-background {
+    background-color: rgb(49,51,108);
+    background-image: linear-gradient(0deg, rgba(49,51,108,1) 0%, rgba(22,17,77,1) 2%, rgba(20,0,9,1) 45%, rgba(0,0,0,1) 100%);
+    color: white;
+}
+
+h1 {
+    font-size: 550%;
+}
+
+h3 {
+    font-size: 350%;
+}
+
+input {
+    white-space: nowrap;
+}
+
+/* Positioning the sections */
+
+.time {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.to-do {
+    text-align: center;
+}
+
+
+/* settings section */
+
+.settings-section {
+    color: black;
+}
+
+.settings-button {
+    margin: 0.5%;
+}
+
+.settings-button i {
+    font-size: 2rem;
+}
+
+/* greeting container*/ 
+
+.greeting-container {
+    text-align: center;
+    padding: 3.5% 0;
+}
+
+/* ---------------------- to-do list section ---------------------- */
+
+/* createUniTask section */
+
+.create-uni-task {
+    border: 1px solid white;
+    border-radius: 5%;
+    padding: 2%;
+    max-width: 400px;
+    max-height: 330px;
+}
+
+.uni-task-checkbox {
+    text-align: left;
+    padding-left: 15%;
+}
+
+.text-input-label , .boolean-checkbox-label {
+    white-space: nowrap;
+}
+
+/* tasks section */
+
+.task-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid white;
+    border-radius: 2.5%;
+    width: 400px;
+    /* height: 75px; */
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 12.5px 0; */
+}
+
+.task-box:first-child {
+    margin-top: 0;
+    margin-bottom: 12.5px;;
+}
+
+.uni-task-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.uni-task-check-container {
+    display: flex;
+    align-items: center;
+}
+
+.uni-task-info {
+    text-align: left;
+    max-width: 300px;
+    overflow: hidden;
+}
+
+.uni-task-info h5, .uni-task-info p {
+    margin: 0;
+}
+
+.task-box i {
+    font-size: 2rem;
+}
+
+.task-box i:hover {
+    color: #DDE4EF;
+    cursor: pointer;
+}
+
+.done h5, .done p{
+    text-decoration: line-through;
+}
+
+.fa-check-circle {
+    margin: 0 15px;;
+}
+
+.fa-times-circle {
+    margin-right: 15px;
+}
+
+
+/* Task Tags*/
+
+.tag {
+    border-radius: 5%;
+    text-align: center;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.tag:first-of-type {
+    margin-left: 0;
+}
+
+.graded-tag {
+    background-color: #EA2027;
+    color: white;
+    width: 50px;
+    height: 16px;
+}
+
+.on-repeat-tag {
+    background-color: #009432;
+    color: white;
+    width: 70px;
+    height: 16px;
+}
+
+.graded-tag p , .on-repeat-tag p {
+    font-size: 75%;
+    text-decoration: none;
+}
+>>>>>>> parent of efc9986... finished main section of vertex, has all the features, bugs not fixed and styling not done yet
