@@ -10,30 +10,39 @@ html {
 
 body {
     font-family: 'Red Hat Text', sans-serif;
+    color: white;
+    
+}
+
+i {
+    color: white;
 }
 
 .morning-background {
     background-color: rgb(238,174,202);
     background-image: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    color: white;
 }
 
 .afternoon-background {
-    background-color: rgb(227,211,255);
-    background-image: linear-gradient(0deg, rgba(227,211,255,1) 0%, rgba(240,255,157,1) 52%, rgba(48,240,255,1) 100%);
-    color: black;
+    background: #ff9966;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .evening-background {
-    background-color: rgb(255,192,0);
-    background-image: linear-gradient(33deg, rgba(255,192,0,1) 15%, rgba(189,4,191,1) 84%);
-    color: white;
+    background: #3A1C71;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #FFAF7B, #D76D77, #3A1C71);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #FFAF7B, #D76D77, #3A1C71); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .night-background {
-    background-color: rgb(49,51,108);
-    background-image: linear-gradient(0deg, rgba(49,51,108,1) 0%, rgba(22,17,77,1) 2%, rgba(20,0,9,1) 45%, rgba(0,0,0,1) 100%);
-    color: white;
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
 }
 
 h1 {
@@ -48,17 +57,19 @@ input {
     white-space: nowrap;
 }
 
+
 /* Positioning the sections */
 
 .time {
+    padding-right: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
 }
 
 .to-do {
     text-align: center;
+    padding-left: 0;
 }
 
 
@@ -83,7 +94,7 @@ input {
     padding: 3.5% 0;
 }
 
-/* time section */
+/* ---------------------- time section ---------------------- */
 .time-section i {
     font-size: 2rem;
 }
@@ -93,24 +104,47 @@ input {
 }
 
 .stopwatch {
-    margin-top: 15%;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 2%;
+    width: 350px;
+    text-align: center;
+    background-color: rgb(255, 255, 255, 20%);
 }
 
 .date-And-Time {
-    margin-bottom: 15%;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 2%;
+    width: 350px;
+    background-color: rgb(255, 255, 255, 20%);
+    overflow: hidden;
+}
+
+.date-And-Time h3 {
+    position: relative;
 }
 
 /* ---------------------- to-do list section ---------------------- */
 
+.to-do {
+    color: white;
+}
+
 /* createUniTask section */
+
+.add-task-section {
+    width: 380px;
+}
 
 .create-uni-task {
     border: 1px solid white;
-    border-radius: 15px;;
+    border-radius: 15px;
     padding: 2%;
     max-width: 400px;
-    max-height: 330px;
     margin: 10px 0;
+    background-color: rgb(255, 255, 255, 20%);
 }
 
 .uni-task-checkbox {
@@ -122,6 +156,14 @@ input {
     white-space: nowrap;
 }
 
+.display-uni-form {
+    display: block;
+}
+
+.hide-uni-form {
+    display: none;
+}
+
 /* createLifeTask section*/
 
 .create-life-task {
@@ -129,10 +171,20 @@ input {
     border-radius: 15px;
     padding: 2%;
     margin: 10px 0;
+    max-width: 400px;
+    background-color: rgb(255, 255, 255, 20%);
 }
 
 .add-task-section form:first-child {
     margin-top: 0;
+}
+
+.display-life-form {
+    display: block;
+}
+
+.hide-life-form {
+    display: none;
 }
 
 
@@ -158,12 +210,11 @@ input {
     border: 1px solid white;
     border-radius: 15px;
     width: 400px;
-    /* height: 75px; */
     height: 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin: 12.5px 0; */
+    background-color: rgb(255, 255, 255, 20%);
 }
 
 .task-box:first-child {
@@ -245,3 +296,93 @@ input {
     font-size: 75%;
     text-decoration: none;
 }
+
+/* ---------------------- JobAppl Section ---------------------- */
+
+.nav-buttons {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    display: flex;
+}
+
+.right-button {
+    font-size: 2rem;
+    margin: 0.5%;
+}
+
+.custom-row-container {
+    position: relative;
+}
+
+.custom-row {
+    height: 35px;
+    transition: width 1s;
+    width: 100%;
+}
+
+.display-shrink-row {
+    width: 97%;
+}
+
+.rectangle {
+    display: inline-block;
+    width: 14.28571429%;
+    height: 35px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.col-label {
+    height: 35px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.col-label p {
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+    outline: none;
+    width: 100%;
+    height: 35px;
+    border: 0px;
+    background-color: rgb(255, 255, 255, 50%);
+}
+
+.buttons-row {
+    text-align: center;
+}
+
+.job-app-button {
+    font-size: 2rem;
+}
+
+.delete-button {
+    position: absolute;
+    visibility: hidden;
+    transition: visibility 1s, opacity 0.5s;
+    top: 0;
+    right: 0;
+    opacity: 0%;
+}
+
+.delete-button i {
+    font-size: 1.5rem;
+}
+
+.display-delete-button {
+    visibility: visible;
+    opacity: 100%;
+  }
+
+  .times-circle-icon {
+      margin-right: 0;
+  }
+

@@ -9,10 +9,11 @@
     <title>Vertex</title>
 </head>
 <body>
-    <!-- settings section -->
+    <!-- Buttons -->
     <button type="button" class="btn settings-button" data-toggle="modal" data-target="#settingsModal"><i class="fas fa-cog"></i></button>
-    <button type="button" class="btn appli-button"><i class="fas fa-table"></i></button>
+    <div id="nav-buttons"></div>
     
+    <!-- settings section -->
     <div class="modal fade settings-section" id="settingsModal">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -28,23 +29,19 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveSettings">Save changes</button>
+              <button type="button" class="btn btn-dark" data-dismiss="modal" id="saveSettings">Save changes</button>
             </div>
           </div>
         </div>
       </div>
 
     <!-- title section -->
-    <div class="greeting-container"><h1 class="name" id="title"></h1></div>
-    <!-- main section -->
-    <div class="container-fluid">
-        <div class="row">
-            <div id="col-left" class="time col-lg-4"></div>
-            <div id="col-right" class="to-do col-lg-8"></div>
-        </div>
-    </div>
-    <!-- job application table section -->
+    <div class="greeting-container" id="title"></div>
     
+    <!-- Main body section-->
+    <div id="root"></div>
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

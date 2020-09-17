@@ -10,7 +10,7 @@ function CreateUniTask(props) {
     // Its keys are: 1) courseName (String) 2) uniTaskToDo (String) 3) method (String) 4) onRepeat (Boolean)
     // A key name will be sent to a child component
 
-    const [taskInfo, setTaskInfo] = useState({courseName:"", uniTaskToDo: "", method: "", graded: false ,onRepeat: false});
+    const [taskInfo, setTaskInfo] = useState({courseName:"", uniTaskToDo: "", method: "", graded: false ,onRepeat: false, completed: false});
 
     // reset will be set to true once the user hits the add button, which will erase the values on the screen of the form
 
@@ -32,7 +32,8 @@ function CreateUniTask(props) {
                     uniTaskToDo: prevValue.uniTaskToDo,
                     method: prevValue.method,
                     graded: prevValue.graded,
-                    onRepeat: prevValue.onRepeat
+                    onRepeat: prevValue.onRepeat,
+                    completed: false
                 }
             } else if (type === "uniTaskToDo") {
                 return {
@@ -41,7 +42,8 @@ function CreateUniTask(props) {
                     uniTaskToDo: info,
                     method: prevValue.method,
                     graded: prevValue.graded,
-                    onRepeat: prevValue.onRepeat
+                    onRepeat: prevValue.onRepeat,
+                    completed: false
                 }
             } else if (type === "method") {
                 return {
@@ -50,7 +52,8 @@ function CreateUniTask(props) {
                     uniTaskToDo: prevValue.uniTaskToDo,
                     method: info,
                     graded: prevValue.graded,
-                    onRepeat: prevValue.onRepeat
+                    onRepeat: prevValue.onRepeat,
+                    completed: false
                 }
             } else if (type === "graded") {
                 return {
@@ -59,7 +62,8 @@ function CreateUniTask(props) {
                     uniTaskToDo: prevValue.uniTaskToDo,
                     method: prevValue.method,
                     graded: info,
-                    onRepeat: prevValue.onRepeat
+                    onRepeat: prevValue.onRepeat,
+                    completed: false
                 }
             } else {
                 return {
@@ -68,7 +72,8 @@ function CreateUniTask(props) {
                     uniTaskToDo: prevValue.uniTaskToDo,
                     method: prevValue.method,
                     graded: prevValue.graded,
-                    onRepeat: info
+                    onRepeat: info,
+                    completed: false
                 }
             }
         });
@@ -82,6 +87,17 @@ function CreateUniTask(props) {
         event.preventDefault();
     }
 
+    // hiding/displaying the form
+
+    const [displayForm, setDisplayForm] = useState(false)
+    
+    function display(event) {
+        event.preventDefault();
+        setDisplayForm(!displayForm);
+    }
+
+    const isDisplayOn = displayForm? "display-uni-form" : "hide-uni-form";
+
     // In the to-do list, 
     // 1) TextInput:  Course Name
     // 2) UniTaskCheckboxs: Which task is it: Revision, Exercise, Assignment, Reading, other...
@@ -92,30 +108,34 @@ function CreateUniTask(props) {
     return (
         <form className="create-uni-task">
             <h4>UNIVERSITY</h4>
-            <div className="row">
-                <label className="text-input-label col-lg-2 col-md-2 col-sm-2" >Course Name</label>
-                <div className="col-lg-10 col-md-10 col-sm-10">
-                    <TextInput  placeholderName="Course Name" objectKey="courseName" captureTaskInfo={captureTaskInfo} reset={isReset} setResetToFalse={setResetToFalse}/>
+            {displayForm? null : <button className="btn" onClick={display}><i className="fas fa-angle-down"></i></button>}
+            <div className={`${isDisplayOn}`}>
+                <div className="row">
+                    <label className="text-input-label col-lg-3 col-md-3 col-sm-3 d-flex justify-content-start" >Course Name</label>
+                    <div className="col-lg-9 col-md-9 col-sm-9">
+                        <TextInput  placeholderName="Course Name" objectKey="courseName" captureTaskInfo={captureTaskInfo} reset={isReset} setResetToFalse={setResetToFalse}/>
+                    </div>
                 </div>
+                <UniTaskCheckboxs  objectKey="uniTaskToDo" captureTaskInfo={captureTaskInfo} reset={isReset} setResetToFalse={setResetToFalse}/>
+                <div className="row">
+                    <label className="col-lg-3 col-md-3 col-sm-3 d-flex justify-content-start" >Details</label>
+                    <div className="col-lg-9 col-md-9 col-sm-9">
+                        <TextInput  placeholderName="Details" objectKey="method" captureTaskInfo={captureTaskInfo} reset={isReset} setResetToFalse={setResetToFalse}/>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-2 col-md-2 col-sm-2">
+                        <BooleanCheckbox  name="Graded" objectKey="graded" captureTaskInfo={captureTaskInfo} reset={isReset} setResetToFalse={setResetToFalse}/>
+                    </div>
+                </div> 
+                <div className="row">
+                    <div className="col-lg-2 col-md-2 col-sm-2">
+                        <BooleanCheckbox  name="On Repeat" objectKey="onRepeat" captureTaskInfo={captureTaskInfo} reset={isReset} setResetToFalse={setResetToFalse}/>
+                    </div>
+                </div> 
+                <button className="btn btn-outline-light" onClick={handleClick}>Add</button><br/>
+                <button className="btn" onClick={display}><i className="fas fa-angle-up"></i></button>
             </div>
-            <UniTaskCheckboxs  objectKey="uniTaskToDo" captureTaskInfo={captureTaskInfo} reset={isReset} setResetToFalse={setResetToFalse}/>
-            <div className="row">
-                <label className="col-lg-2 col-md-2 col-sm-2" >Details</label>
-                <div className="col-lg-10 col-md-10 col-sm-10">
-                    <TextInput  placeholderName="Details" objectKey="method" captureTaskInfo={captureTaskInfo} reset={isReset} setResetToFalse={setResetToFalse}/>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-lg-2 col-md-2 col-sm-2">
-                    <BooleanCheckbox  name="Graded" objectKey="graded" captureTaskInfo={captureTaskInfo} reset={isReset} setResetToFalse={setResetToFalse}/>
-                </div>
-            </div> 
-            <div className="row">
-                <div className="col-lg-2 col-md-2 col-sm-2">
-                    <BooleanCheckbox  name="On Repeat" objectKey="onRepeat" captureTaskInfo={captureTaskInfo} reset={isReset} setResetToFalse={setResetToFalse}/>
-                </div>
-            </div> 
-            <button className="btn btn-outline-light" onClick={handleClick}>Add</button>
         </form>
     )
 

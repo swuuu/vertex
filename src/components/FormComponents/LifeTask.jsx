@@ -3,13 +3,28 @@ import OnRepeatTag from "./TaskTags/OnRepeatTag";
 
 function LifeTask(props, ref) {
 
-    const [isDone, setDone] = useState(false);
+    const [isDone, setDone] = useState(props.completed);
 
     function changeDone() {
         setDone(!isDone);
     }
 
     const done = isDone && "done";
+
+    function cross() {
+        const task = {
+            keyID: props.keyID,
+            lifeTaskTitle: props.lifeTaskTitle,
+            lifeTaskDetails: props.lifeTaskDetails,
+            onRepeat: props.onRepeat,
+            completed: isDone
+        }
+        props.crossLifeTask(task, task.keyID)
+    }
+
+    React.useEffect(()=>{
+        cross();
+    }, [isDone])
 
     return (
         

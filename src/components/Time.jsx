@@ -72,9 +72,9 @@ function Time() {
         setPause(true);
         setSeconds(0);
     }
-
+    
     return (
-        <div className="time-section">
+        <div className={`time-section `}>
             <div className="date-And-Time">
                 <h3>{generateDate(date)}</h3>
                 <h3>{time}</h3>
@@ -86,6 +86,7 @@ function Time() {
             </div>
         </div>
     )
+
 }
 
 export default Time;

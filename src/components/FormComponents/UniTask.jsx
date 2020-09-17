@@ -6,13 +6,30 @@ function UniTask(props, ref) {
     // Receives courseName, uniTaskToDo, method, onRepeat as props
 
     // isDone will allow the UniTask to be crossed out
-    const [isDone, setDone] = useState(false);
+    const [isDone, setDone] = useState(props.completed);
 
     function changeDone() {
         setDone(!isDone);
     }
 
     const done = isDone && "done";
+
+    function cross() {
+        const task = {
+            keyID: props.keyID,
+            courseName: props.courseName,
+            uniTaskToDo: props.uniTaskToDo,
+            method: props.method,
+            graded: props.graded,
+            onRepeat: props.onRepeat,
+            completed: isDone
+        }
+        props.crossUniTask(task, task.keyID)
+    }
+
+    React.useEffect(()=>{
+        cross();
+    }, [isDone])
 
     return (
         

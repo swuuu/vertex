@@ -1,4 +1,3 @@
-import React, {useState} from "react";
 
 // setting variables
 const name = localStorage.getItem("name") ? localStorage.getItem("name") : "";

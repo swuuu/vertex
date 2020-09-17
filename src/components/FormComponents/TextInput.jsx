@@ -36,7 +36,7 @@ function TextInput(props) {
 
 
     return (
-        <div><input placeholder={props.placeholderName} value={inputValue} onChange={UpdateValue}/></div>
+        <div><input placeholder={props.placeholderName} className="form-control" value={inputValue} onChange={UpdateValue}/></div>
     )
 }
 

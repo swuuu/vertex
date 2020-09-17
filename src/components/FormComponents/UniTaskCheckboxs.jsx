@@ -89,13 +89,16 @@ function UniTaskCheckboxs(props) {
 
     return (
         <div>
-            <div className="uni-task-checkbox  row">
+            <div className="uni-task-checkbox row">
                 <div className="col-lg-6 col-md-6">
                     <input className="uni-task-checkbox form-check-input" type="checkbox" name="Revision"  onChange={changeChecked} checked={checked.Revision}/><label>Revision</label>
                 </div>
                 <div className="col-lg-6 col-md-6">
                     <input className="uni-task-checkbox form-check-input" type="checkbox" name="Exercise"  onChange={changeChecked}  checked={checked.Exercise}/><label>Exercise</label>
                 </div>
+            </div>
+
+            <div className="uni-task-checkbox row">
                 <div className="col-lg-6 col-md-6">
                     <input className="uni-task-checkbox form-check-input" type="checkbox" name="Assignment"  onChange={changeChecked}  checked={checked.Assignment}/><label>Assignment</label>
                 </div>
@@ -103,10 +106,11 @@ function UniTaskCheckboxs(props) {
                     <input className="uni-task-checkbox form-check-input" type="checkbox" name="Reading"  onChange={changeChecked} checked={checked.Reading}/><label>Reading</label>
                 </div>
             </div>
+            
             <div className="row">
-                <label className="col-lg-2 col-md-2 col-sm-2">Other</label>
-                <div className="col-lg-10 col-md-10 col-sm-10 user-input">
-                    <input  placeholder="Other" name="Other" onChange={changeOtherTask} value={otherTask} type="text"/>
+                <label className="col-lg-3 col-md-3 col-sm-3 d-flex justify-content-start">Other</label>
+                <div className="col-lg-9 col-md-9 col-sm-9 user-input">
+                    <input  placeholder="Other" name="Other" className="form-control" onChange={changeOtherTask} value={otherTask} type="text"/>
                 </div>
             </div>
         </div>
