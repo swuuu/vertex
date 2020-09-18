@@ -11,9 +11,6 @@ function Greetings(){
     const [greeting, setGreeting] = useState("");
 
     function generateTitle() {
-
-        
-        updateTime();
         let hour = time.getHours();
         if (hour >= 4 && hour < 12) {
             setBackgroundColor("morning-background");
@@ -31,8 +28,13 @@ function Greetings(){
     }
 
     function updateTime() {
-        setTime(new Date());
+        const newDate = new Date();
+        setTime(newDate);
     }
+
+    React.useEffect(()=>{
+        generateTitle();
+    },[time])
 
     React.useEffect(()=>{
         // adjusting the background color depending on the time of the day
@@ -41,7 +43,7 @@ function Greetings(){
     }, [backgroundColor])
 
     React.useEffect(()=>{
-        const interval = setInterval(generateTitle, 1000);
+        const interval = setInterval(updateTime, 1000);
         return ()=>clearInterval(interval);
     }, [])
 
