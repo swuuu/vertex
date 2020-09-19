@@ -14,3 +14,5 @@ This is a productivity app created mainly with react. The project was inspired f
 * Fix some form bugs
 * Style the input elements of the form
 * Clean/Shrink code of the form components
+* Something happens which makes the memory footprint of the tab increase. The increase never stops until the site crashes. However, most of the time, the
+memory footprint is constant.
