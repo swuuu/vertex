@@ -1,5 +1,5 @@
-## Vertex
-This is a productivity app created mainly with react. The project was inspired from Momemtum, a chrome extension productivity tool (https://momentumdash.com).
+## [Vertex](https://vertex-app.herokuapp.com/)
+This is a productivity app created mainly with react. The project was inspired from [Momemtum](https://momentumdash.com), a chrome extension productivity tool.
 
 ## Features
 * 2 different types of tasks creation: University tasks and other tasks
